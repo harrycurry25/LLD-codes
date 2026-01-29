@@ -1,4 +1,23 @@
 package com.conceptcoding.solid.openclosed.solution;
 
+import com.conceptcoding.solid.singleresponsibilty.solution.Invoice;
+import com.conceptcoding.solid.singleresponsibilty.solution.Marker;
+
 public class SolutionDemo {
+
+    public static void main(String[] args) {
+
+        Invoice invoice = new Invoice(new Marker("name", "color", 10, 2020), 10);
+        invoice.calculateTotal();
+
+        InvoiceDao databaseInvoiceDao = new DatabaseInvoiceDao(invoice);
+        databaseInvoiceDao.save(); // Save to DB
+
+        InvoiceDao fileInvoiceDao = new FileInvoiceDao(invoice);
+        fileInvoiceDao.save(); // Save to File
+
+        // The system is:
+        // - OPEN for extension (new save functions can be added)
+        // - CLOSED for modification (existing code remains unchanged)
+    }
 }

@@ -1,4 +1,8 @@
 package com.conceptcoding.solid.liskovsubstitution.example2.violation;
 
-public class MotorCycle {
+public class MotorCycle extends Vehicle{
+
+    public String getSpecifications() {
+        return "MotorCycle has " + this.getNumberOfWheels() + " wheels and has engine: " + this.hasEngine();
+    }
 }

@@ -1,4 +1,11 @@
 package com.conceptcoding.solid.liskovsubstitution.example1.solution;
 
-public class Bike {
+
+abstract class Bike {
+
+    // All Bikes can do these things
+    public abstract void accelerate();
+
+    public abstract void applyBrakes();
+
 }
